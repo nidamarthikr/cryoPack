@@ -3,8 +3,7 @@ from setuptools import setup, find_packages
 with open('requirements.txt') as f:
 	requirements = f.readlines()
 
-long_description = 'Sample Package made for a demo \
-	of its making for the GeeksforGeeks Article.'
+long_description = 'Package to analyse cryo-EM reconstruction'
 
 setup(
 		name ='qcheck',
