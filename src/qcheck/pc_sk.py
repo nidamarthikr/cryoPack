@@ -110,7 +110,3 @@ print('High PC value:%5f'%(val1[0]))
 print('Z-score of Skew Test:%5f'%(val1[1]))
 print('Z-score of Kurtosis Test:%5f'%(val1[2]))
 skplot(val1[1],val1[2],val1[0])
-
-       
-
-
