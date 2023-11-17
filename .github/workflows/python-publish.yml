@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Publish to PyPI.org
+name: qcheck to PyPI.org
 
 on:
   release:
