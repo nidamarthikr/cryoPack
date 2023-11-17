@@ -1,7 +1,5 @@
 from setuptools import setup, find_packages
 
-long_description = 'Package to analyse cryo-EM reconstruction'
-
 setup(
 		name ='qcheck',
 		version ='1.0.0',
@@ -21,6 +19,8 @@ setup(
                                      'pandas >=1.3.5',
                                      'mrcfile >=1.4.3',
                                      'h5py >=3.9.0'],
+	        long_description=open('README.md').read(),
+                long_description_content_type='text/markdown',
 		zip_safe = False
 )
 
