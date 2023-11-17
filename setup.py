@@ -14,11 +14,11 @@ setup(
 		description ='Quality parameters for cryoEM',
 		license ='MIT',
 		packages = find_packages(),
-		classifiers =(
+		classifiers =[
 			"Programming Language :: Python :: 3",
 			"License :: OSI Approved :: MIT License",
 			"Operating System :: OS Independent",
-		),
+		],
 		keywords ='CryoEm 3D maps Reconstrunction Statistics Quality matrics',
 		install_requires = requirements,
 		zip_safe = False
