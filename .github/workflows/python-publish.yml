@@ -9,7 +9,7 @@
 name: qcheck to PyPI.org
 
 on:
-  workflow_run:
+  workflow_dispatch:
   release:
     types: [published]
 
