@@ -1,4 +1,4 @@
-# qcheck
+# cryo_qcheck
 This package is work in progess which contains programs that help in accessing quality of cryoEM 3D map reconstruction. 
 
 The details of the program are publised in biorxiv, a preprint server for biology.
