@@ -20,7 +20,7 @@ setup(
 			"Operating System :: OS Independent",
 		],
 		keywords ='CryoEm 3D maps Reconstrunction Statistics Quality matrics',
-		install_requires = requirements,
+		install_requires = = {file = ["requirements.txt"]},
 		zip_safe = False
 )
 
