@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-		name ='qcheck',
-		version ='1.0.0',
+		name ='cryo_qcheck',
+		version ='0.0.1',
 		author ='kutumbarao Nidamarthi',
 		author_email ='nidamarthi.kr@gmail.com',
 		url ='https://github.com/nidamarthikr/qcheck',
