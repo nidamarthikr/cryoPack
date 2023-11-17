@@ -19,8 +19,12 @@ setup(
 			"License :: OSI Approved :: MIT License",
 			"Operating System :: OS Independent",
 		],
+	        REQUIRED_PACKAGES = [python >=3, 
+				     pandas >=1.3.5, 
+				     mrcfile >=1.4.3, 
+				     h5py >=3.9.0],
 		keywords ='CryoEm 3D maps Reconstrunction Statistics Quality matrics',
-		install_requires = = {file = ["requirements.txt"]},
+		install_requires = REQUIRED_PACKAGES,
 		zip_safe = False
 )
 
