@@ -15,7 +15,7 @@ setup(
 			"Operating System :: OS Independent",
 		],
 	      	keywords ='CryoEm 3D maps Reconstrunction Statistics Quality matrics',
-		install_requires = ['python >=3', 
+		install_requires = ['python >=3.0', 
                                      'pandas >=1.3.5',
                                      'mrcfile >=1.4.3',
                                      'h5py >=3.9.0'],
