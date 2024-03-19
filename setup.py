@@ -20,7 +20,7 @@ setup(
                                      'mrcfile',
                                      'h5py'],
 	        entry_points={
-			 'console_scripts': ["cP.qcheck_pc=qcheck.pc_sk:main"],
+			 'console_scripts': ["cP.qcheck_pc=pc_sk:main"],
 		},
 	        long_description=open('README.md').read(),
                 long_description_content_type='text/markdown',
