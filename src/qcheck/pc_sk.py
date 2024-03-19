@@ -9,12 +9,16 @@ from scipy.stats import *
 from skimage import morphology
 import matplotlib.pyplot as plt
 
-def print_grp_name(grp_name, object):
-  try:
-    n_subgroups = len(object.keys())
-  except:
-    n_subgroups = 0
-    dataset_list.append (object.name)
+def list_g(f):
+    dlist=[]
+    def print_grp_name(grp_name, object):
+        try:
+           n_subgroups = len(object.keys())
+        except:
+           n_subgroups = 0
+           dlist.append (object.name)
+    f.visititems(print_grp_name)
+    retrun(dlist)
 
 
 def my_func(a):
@@ -85,28 +89,31 @@ def skplot(x,y,z):
         verticalalignment='top', bbox=props)
     plt.show()
 
-script_name = sys.argv[0]
-a = sys.argv[1]
-con = float(sys.argv[2])
-val1=[]
-fmt = sys.argv[1].split(".")[1]
-if(fmt =="mrc" or fmt =="map"):
-   m = mrcfile.open(a)
-   data = m.data
-   val = cal_mom(data,con)
-   val1.extend(val)
-elif(fmt == "hdf"):
-    f = h5py.File(a,'r')
-    dataset_list = []
-    f.visititems(print_grp_name)
-    for i in dataset_list: 
-        #data = f.get(i).value #for python2.7
-        data = f[i]            #for python3.7
-        val = cal_mom(data,con)
-        val1.extend(val)
-print('Input Map:%s' %(sys.argv[1]))
-print('Input contour value:%5f'%(con))
-print('High PC value:%5f'%(val1[0]))
-print('Z-score of Skew Test:%5f'%(val1[1]))
-print('Z-score of Kurtosis Test:%5f'%(val1[2]))
-skplot(val1[1],val1[2],val1[0])
+def main():
+    script_name = sys.argv[0]
+    a = sys.argv[1]
+    con = float(sys.argv[2])
+    val1=[]
+    fmt = sys.argv[1].split(".")[1]
+    if(fmt =="mrc" or fmt =="map"):
+       m = mrcfile.open(a)
+       data = m.data
+       val = cal_mom(data,con)
+       val1.extend(val)
+    elif(fmt == "hdf"):
+       f = h5py.File(a,'r')
+       dl = list_g(f)
+       for i in dl: 
+        #data = f.get(i).value    #for python2.7
+           data = f[i]            #for python3.7
+           val = cal_mom(data,con)
+           val1.extend(val)
+    print('Input Map:%s' %(sys.argv[1]))
+    print('Input contour value:%5f'%(con))
+    print('High PC value:%5f'%(val1[0]))
+    print('Z-score of Skew Test:%5f'%(val1[1]))
+    print('Z-score of Kurtosis Test:%5f'%(val1[2]))
+    skplot(val1[1],val1[2],val1[0])
+
+if __name__ == '__main__':
+     main()
