@@ -1,11 +1,11 @@
 from setuptools import setup, find_packages
 
 setup(
-		name ='cryo_qcheck',
+		name ='cryoPack',
 		version ='0.0.1',
 		author ='kutumbarao Nidamarthi',
 		author_email ='nidamarthi.kr@gmail.com',
-		url ='https://github.com/nidamarthikr/qcheck',
+		url ='https://github.com/nidamarthikr/cryoPack',
 		description ='Quality parameters for cryoEM',
 		license ='MIT',
 		packages = find_packages(),
