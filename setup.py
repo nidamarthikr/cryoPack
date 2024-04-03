@@ -19,7 +19,8 @@ setup(
 		install_requires = [
                                      'pandas',
                                      'mrcfile',
-                                     'h5py'],
+                                     'h5py', 
+			             'skimage'],
 	        entry_points={
 			 'console_scripts': ["cP.qcheck_pc=cryoPack.pc_sk:main"],
 		},
