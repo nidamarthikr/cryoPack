@@ -1,4 +1,5 @@
 from setuptools import setup, find_packages
+from qcheck.pc_sk import pc_sk
 
 setup(
 		name ='cryoPack',
