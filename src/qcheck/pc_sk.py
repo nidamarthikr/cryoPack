@@ -18,7 +18,7 @@ def list_g(f):
            n_subgroups = 0
            dlist.append (object.name)
     f.visititems(print_grp_name)
-    retrun(dlist)
+    return(dlist)
 
 
 def my_func(a):
