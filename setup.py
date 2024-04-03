@@ -20,7 +20,7 @@ setup(
                                      'pandas',
                                      'mrcfile',
                                      'h5py', 
-			             'skimage'],
+			             'scikit-image'],
 	        entry_points={
 			 'console_scripts': ["cP.qcheck_pc=cryoPack.pc_sk:main"],
 		},
