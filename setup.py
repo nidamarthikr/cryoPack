@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-from src.qcheck.pc_sk import pc_sk
+#from src.qcheck.pc_sk import pc_sk
 
 setup(
 		name ='cryoPack',
@@ -22,7 +22,7 @@ setup(
                                      'h5py', 
 			             'scikit-image'],
 	        entry_points={
-			 'console_scripts': ["cP.qcheck_pc=cryoPack.pc_sk:main"],
+			 'console_scripts': ["cP.qcheck_pc=src.qcheck.pc_sk:main"],
 		},
 	        long_description=open('README.md').read(),
                 long_description_content_type='text/markdown',
