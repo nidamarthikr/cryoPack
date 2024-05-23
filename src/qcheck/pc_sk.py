@@ -2,12 +2,14 @@ import sys
 import h5py
 import mrcfile
 import warnings
+import argparse
 import numpy as np
 import pandas as pd
 from scipy import stats
 from scipy.stats import *
 from skimage import morphology
 import matplotlib.pyplot as plt
+from argparse import RawTextHelpFormatter
 
 def list_g(f):
     dlist=[]
@@ -90,9 +92,31 @@ def skplot(x,y,z):
     plt.show()
 
 def main():
-    script_name = sys.argv[0]
-    a = sys.argv[1]
-    con = float(sys.argv[2])
+    parser=argparse.ArgumentParser(
+    description=
+    """
+      The program helps in quantitatively assess the presence of non-particles
+           in the reconstructed cryo-EM map. The program evalutes phase values
+           from the 3D cryoEM reconstructed map and calcuates two statistical
+           parameter to judge the quality of the reconstruction.
+
+      The program takes two input parameters to perform calculations, one is
+          the cryo-EM map which can have both mrc or map extension and second
+          parameter is the map's contour value, user defined.
+
+      The program accepts maps from hdf, map or mrc format to process.
+
+      The results are printed onto the terminal and a graph representing the
+          same will be given as output to save. The output includes, name of
+          the file, input contour value, High PC value, Z-score of Skew Test
+          and Z-score of Kurtosis Test.
+
+      Usage: cP.qcheck_pc inputfile.mrc 1.5""",formatter_class=RawTextHelpFormatter)
+    parser.add_argument('file', type=str, help='input map file')
+    parser.add_argument('contour', type=float, help='map contour value')
+    args=parser.parse_args()
+    a = args.file #sys.argv[1]
+    con = args.contour #float(sys.argv[2])
     val1=[]
     fmt = sys.argv[1].split(".")[1]
     if(fmt =="mrc" or fmt =="map"):
