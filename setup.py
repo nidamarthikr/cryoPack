@@ -22,7 +22,8 @@ setup(
                                      'h5py', 
 			             'scikit-image'],
 	        entry_points={
-			 'console_scripts': ["cP.qcheck_pc=src.qcheck.pc_sk:main"],
+			 'console_scripts': ["cP.qcheck_mqa=src.qcheck.pc_sk:main",
+					     "cP.qcheck_poa=src.qcheck.pp_ac:main"],	
 		},
 	        long_description=open('README.md').read(),
                 long_description_content_type='text/markdown',
