@@ -111,7 +111,7 @@ def main():
           the file, input contour value, High PC value, Z-score of Skew Test
           and Z-score of Kurtosis Test.
 
-      Usage: cP.qcheck_pc inputfile.mrc 1.5""",formatter_class=RawTextHelpFormatter)
+      Usage: cP.qcheck_mqa inputfile.mrc 1.5""",formatter_class=RawTextHelpFormatter)
     parser.add_argument('file', type=str, help='input map file')
     parser.add_argument('contour', type=float, help='map contour value')
     args=parser.parse_args()
