@@ -15,7 +15,7 @@ The contour value is used to create a mask and then perform the calcualation.
 
 "cP_qcheck.poa" program help in evaluating orientation assignment and alignmen of projections selected for reconstruction process. The output numerical also indicates the completness of projections required.      
 
-For both the programs once the calucaltions are done, the output numerical values are printed on the console and a graph is saved into the folder with the name of the file provided for calculation. 
+For both the programs once the calucaltions are done, the output numerical values are printed on the console and a graph. 
 
 Usage:
 
