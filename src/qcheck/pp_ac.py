@@ -67,7 +67,7 @@ def main():
 
       Usage: cP.qcheck_poa inputfile.hdf """,formatter_class=RawTextHelpFormatter)
     parser.add_argument('file', type=str, help='input map file')
-      args=parser.parse_args()
+    args=parser.parse_args()
     #script_name = sys.argv[0]
     a = args.file #sys.argv[1]
     f = h5py.File(a,'r')
