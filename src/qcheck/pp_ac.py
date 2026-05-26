@@ -44,6 +44,30 @@ def lccc(y_true,y_pred):
     denominator=var_true+var_pred+(mean_true-mean_pred)**2
     return numerator/denominator
 
+def compute_gs(AC, Np, C):
+    """
+    Compute Global Score (GS)
+
+    Parameters
+    ----------
+    AC : float
+        Lag-1 autocorrelation value
+    Np : int
+        Number of projections / particles
+    C : int
+        Number of symmetry centres
+
+    Returns
+    -------
+    float
+        Global Score (GS)
+    """
+    # Effective sampling term
+    log_term = math.log10(Np / C)
+
+    # Bounded global score
+    return AC * (log_term / (log_term + 1))
+
 def main():
     parser=argparse.ArgumentParser(
     description=
@@ -66,10 +90,12 @@ def main():
             and Autocorrelation value.
 
       Usage: cP.qcheck_poa inputfile.hdf """,formatter_class=RawTextHelpFormatter)
-    parser.add_argument('file', type=str, help='input map file')
+    parser.add_argument('--file', '-f','type=str, help='input map file')
+    parser.add_argument('--centres', '-c',type=int, required=True,help='Number of symmetry centres (C)')
     args=parser.parse_args()
     #script_name = sys.argv[0]
     a = args.file #sys.argv[1]
+    c = args.centres 
     f = h5py.File(a,'r')
     #dataset_list = []
     dataset_list = list_g(f)
@@ -88,12 +114,15 @@ def main():
     pc = pca.fit_transform(res)
     pc1  = np.roll(pc,1)
     ac = stats.pearsonr(pc[:,0],pc1[:,0])[0]
-    cc = lccc(pc[:,0],pc1[:,0])
+    Np = len(res)
+    c = np.int32(c)
+    gs = compute_gs(ac, Np,s)
+    #cc = lccc(pc[:,0],pc1[:,0])
     #l = len(dataset_list)
     print('Input Map:%s' %(sys.argv[1]))
     print('Number of Particles: %d' %(len(dataset_list)))
     print('Autocorrelation:%5f'%(ac))
-    print('lccc:%5f'%(cc))
+    print('Gobal Score:%5f'%(gs))
     plt.scatter(pc1,pc)
     plt.title("Scatter of pc and lag of pc")
     plt.xlabel("Lag 1 of pc1 values")
