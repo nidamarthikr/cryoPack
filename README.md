@@ -1,31 +1,62 @@
 # cryoPack
 
-This package is work in progess which contains programs that help in model building and quality assessment for maps from cryoEM experiment. 
+cryoPack
+cryoPack is a work‑in‑progress package that provides tools for model evaluation and quality assessment of cryo‑EM maps and projection datasets. The package focuses on reference‑free, statistically grounded diagnostics that help assess data quality prior to and after 3D reconstruction.
 
-The "qcheck" package presently constitutes two programs 
+Package Overview
+The qcheck module currently contains two programs:
+1. cP_qcheck.mqa (Map Quality Assessment)
+This program evaluates phase-related properties of a reconstructed cryo‑EM 3D map and computes statistical parameters to assess map quality.
+It is particularly useful for:
 
-1. cP_qcheck.mqa : This helps evalute phase values from the 3D cryoEM reconstructed map and calcuates two statistical parameter to judge the quality of the cryoEM 3D map reconstruction. 
-2. cP_qcheck.poa : This helps assess the orientation of projections selected for reconstruction. 
+Quantitative assessment of map integrity
+Detecting the presence of non‑particle contributions in the reconstruction
 
-"cP_qcheck.mqa" program helps in quantitatively assess the presence of non-particles in the reconstructed map. The program takes two input parameters to perform calculations, 
-one is the cryo-EM map which can have both mrc or map extension and second parameter is the map's contour value. 
+Inputs:
 
-The contour value is used to create a mask and then perform the calcualation. 
+Cryo‑EM map file (.mrc or .map)
+Contour level
+
+The contour value is used to generate a mask for subsequent calculations.
+
+2. cP_qcheck.poa (Projection Orientation Assessment)
+This program evaluates the orientation assignment and alignment of projections used for reconstruction in a reference‑free manner.
+It provides:
+
+Assessment of orientation consistency
+Evaluation of angular ordering
+Estimation of dataset completeness based on effective sampling
+Detection of misalignment or heterogeneity
+
+The analysis is based on:
+
+Lag‑1 autocorrelation (AC)
+Global Score (GS), which combines intrinsic ordering with effective sampling
 
 
-"cP_qcheck.poa" program help in evaluating orientation assignment and alignmen of projections selected for reconstruction process. The output numerical also indicates the completness of projections required.      
+Input Format
 
-For both the programs once the calucaltions are done, the output numerical values are printed on the console and a graph. 
+cP_qcheck.mqa accepts:
 
-Usage:
+Cryo‑EM map (.mrc / .map)
+
+
+cP_qcheck.poa accepts:
+
+Projection images in HDF format (.hdf)
+
+
+Usage
 
 cP.qcheck_mqa inputfile.mrc 1.5
 
-cP.qcheck_poa inputfile.hdf
+cP.qcheck_poa inputfile.hdf 2
 
-Both the programs have help function with a short discription which can be used as shown below. 
+Help
 
 cP.qcheck_mqa -h
+cP.qcheck_poa -h
+
 
 The details for one of the function is publised as a preprint in biorxiv.
 
