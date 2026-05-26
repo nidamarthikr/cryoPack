@@ -37,25 +37,21 @@ Global Score (GS), which combines intrinsic ordering with effective sampling
 Input Format
 
 cP_qcheck.mqa accepts:
-
-Cryo‑EM map (.mrc / .map)
-
-
+  Cryo‑EM map (.mrc / .map)
+  
 cP_qcheck.poa accepts:
-
-Projection images in HDF format (.hdf)
+  Projection images in HDF format (.hdf)
 
 
 Usage
 
-cP.qcheck_mqa inputfile.mrc 1.5
-
-cP.qcheck_poa inputfile.hdf 2
+    cP.qcheck_mqa inputfile.mrc 1.5
+    cP.qcheck_poa inputfile.hdf 2
 
 Help
 
-cP.qcheck_mqa -h
-cP.qcheck_poa -h
+    cP.qcheck_mqa -h
+    cP.qcheck_poa -h
 
 
 The details for one of the function is publised as a preprint in biorxiv.
