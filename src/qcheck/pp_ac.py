@@ -72,22 +72,23 @@ def main():
     parser=argparse.ArgumentParser(
     description=
     """
-        This program helps in evaluating the orientation assignment and alignment
-             of projection independent of reference structure (prior to initial
-             3D map generation, and without calculating similarity matrix of
-             projections, which is computationally intensive)
+    This program facilitates the evaluation of orientation assignment and alignment
+    of projections in a reference‑free manner (prior to initial 3D map generation),
+    without requiring computation of projection similarity matrices, which are 
+    computationally intensive.
 
-        Additionally, this program informs us completeness of the projections
-             required for a better reconstruction and finally autocorrelation
-             can point out the presence of projection from diverse conformational
-             states.
+    In addition, the program provides an assessment of the completeness of the
+     projection dataset required for reliable reconstruction. The combined use of 
+     lag-1 autocorrelation and the Global Score (GS) enables evaluation of angular
+     ordering and effective sampling, and can also indicate the presence of
+     projections arising from heterogeneous or multiple conformational states.
 
-        The program accepts projections saved as hdf file.
+    The program accepts projections stored in HDF format.
 
-        The results are printed onto the terminal and a graph representing the
-            scatter plots will be given as output to save. The output includes,
-            name of the file, number of projections considered for analysis,
-            and Autocorrelation value.
+    The results are printed to the terminal and include summary statistics such 
+    as the input file name, number of projections analysed, lag‑1 autocorrelation 
+    value, and the Global Score. The program also generates scatter plots as
+     graphical output for visual inspection of projection ordering.
 
       Usage: cP.qcheck_poa inputfile.hdf """,formatter_class=RawTextHelpFormatter)
     parser.add_argument('--file', '-f','type=str, help='input map file')
